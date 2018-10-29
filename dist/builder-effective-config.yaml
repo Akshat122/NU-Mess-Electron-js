@@ -1,0 +1,17 @@
+directories:
+  output: dist
+  buildResources: build
+  app: /home/akshat/NU-Mess
+appId: com.electron.nu-mess
+copyright: Copyright © 2018 Akshat Khanna
+productName: nu-mess
+electronVersion: 3.0.3
+asar: true
+linux:
+  target:
+    - target: AppImage
+      arch:
+        - x64
+    - target: debian package (deb)
+      arch:
+        - x64

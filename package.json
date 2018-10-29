@@ -1,0 +1,61 @@
+{
+    "name": "nu-mess",
+    "productName": "NU MESS APP",
+    "version": "1.0.0",
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "electron-toolkit": "electron ./node_modules/electron-toolkit",
+        "postinstall": "install-app-deps",
+        "dev": "NODE_ENV='development' npm run start",
+        "dist-win": "electron-packager . --platform win32 --icon ./assests/icons/win/icon.ico --out new_out --overwrite",
+        "dist-linux": "electron-packager . --platform linux --icon ./assests/icons/png/icon.png --out new_out --overwrite",
+        "dist-apple": "electron-packager . --platform darwin --icon ./assests/icons/mac/icons.icns --out new_out --overwrite",
+        "package-linux": "electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+        
+    },
+    "keywords": [
+        "nu",
+        "mess"
+    ],
+    "author": "Akshat Khanna",
+    "license": "ISC",
+    "dependencies": {
+        "bootstrap": "^4.1.3",
+        "jquery": "^3.3.1"
+    },
+    "devDependencies": {
+        "electron": "^3.0.3",
+        "electron-builder": "^20.28.4",
+        "electron-packager": "^12.2.0",
+        "electron-toolkit": "^1.0.24"
+    },
+    "build": {
+        "appId": "com.electron.nu-mess",
+        "copyright": "Copyright © 2018 Akshat Khanna",
+        "productName": "nu-mess",
+        "electronVersion": "3.0.3",
+        "asar": true,
+        "directories": {
+            "app": "/home/akshat/NU-Mess",
+            "output": "dist"
+        },
+        "linux": {
+            "target": [
+                {
+                    "target": "AppImage",
+                    "arch": [
+                        "x64"
+                    ]
+                },
+                {
+                    "target": "debian package (deb)",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        }
+    }
+}

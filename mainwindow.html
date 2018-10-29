@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Material Design Bootstrap</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/pre_style.css"> -->
+</head>
+
+<body>
+
+
+<!--Loader -->
+<!--  
+<h1>Cooking in progress..</h1>
+<div id="cooking">
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div id="area">
+    <div id="sides">
+      <div id="pan"></div>
+      <div id="handle"></div>
+    </div>
+    <div id="pancake">
+      <div id="pastry"></div>
+    </div>
+  </div>
+</div> -->
+<!--end Loader-->
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Start your project here-->
+  <div class="container-fluid" >
+    <br>
+    <div class="row">
+      <!-- Card Projects -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-image">
+            <img class="img-responsive" style="width:100%" src="img/breakfast-banner.png">
+
+          </div>
+
+          <div class="card-content">
+            <ul class="list-group list-group-flush"  id="Breakfast">
+              
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-image">
+            <img class="img-responsive" style="width:100%" src="img/lunch-banner.png">
+
+          </div>
+
+          <div class="card-content">
+            <ul class="list-group list-group-flush" id='Lunch'>
+             
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div><br><br>
+    <div class="row">
+      <!-- Card Projects -->
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-image">
+            <img class="img-responsive" style="width:100%" src="img/snacks.jpg">
+
+          </div>
+
+          <div class="card-content">
+            <ul class="list-group list-group-flush" id="Snacks">
+              
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-image">
+            <img class="img-responsive" style="width:100%" src="img/dinner.jpg">
+
+          </div>
+
+          <div class="card-content">
+            <ul class="list-group list-group-flush" id="Dinner">
+             </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <br>
+
+  </div>
+  <!-- /Start your project here-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <!-- <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script> -->
+  <!-- <script> var $ = require('jquery');</script> -->
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <!-- <script type="text/javascript" src="js/mdb.min.js"></script> -->
+  <script>
+    const electron = require('electron');
+    const {ipcRenderer} = electron;
+    const ul = document.querySelector('#Breakfast');
+    console.log('IPC');
+    ipcRenderer.on('Breakfast', (e, item)=>{
+      console.log("Kuch aaya bc ");
+      console.log(item);
+      const li = document.createElement('li');
+      li.className = 'list-group-item';
+      const itemtext = document.createTextNode(item);
+      li.appendChild(itemtext);
+      
+      ul.appendChild(li);
+    });
+     ul_Lunch = document.querySelector('#Lunch');
+    ipcRenderer.on('Lunch', (e, item)=>{
+      console.log("Kuch aaya bc ");
+      console.log(item);
+      const li_lunch = document.createElement('li');
+      li_lunch.className = 'list-group-item';
+      const itemtext = document.createTextNode(item);
+      li_lunch.appendChild(itemtext);
+      
+      ul_Lunch.appendChild(li_lunch);
+    });
+    ul_Snacks = document.querySelector('#Snacks');
+    ipcRenderer.on('Snacks', (e, item)=>{
+      console.log("Kuch aaya bc ");
+      console.log(item);
+      const li_Snacks = document.createElement('li');
+      li_Snacks.className = 'list-group-item';
+      const itemtext = document.createTextNode(item);
+      li_Snacks.appendChild(itemtext);
+      
+      ul_Snacks.appendChild(li_Snacks);
+    });
+    ul_Dinner = document.querySelector('#Dinner');
+    ipcRenderer.on('Dinner', (e, item)=>{
+      console.log("Kuch aaya bc ");
+      console.log(item);
+      const li_Dinner = document.createElement('li');
+      li_Dinner.className = 'list-group-item';
+      const itemtext = document.createTextNode(item);
+      li_Dinner.appendChild(itemtext);
+      
+      ul_Dinner.appendChild(li_Dinner);
+    });
+
+     
+  // console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+  
+  // ipcRenderer.on('asynchronous-reply', (event, arg) => {
+  //   console.log(arg) // prints "pong"
+  // })
+  // ipcRenderer.send('asynchronous-message', 'ping')
+  </script>
+</body>
+
+</html>
